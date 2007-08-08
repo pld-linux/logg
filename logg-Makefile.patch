@@ -1,0 +1,16 @@
+--- logg-2.5/Makefile.unix~	2007-08-07 13:39:00.000000000 +0200
++++ logg-2.5/Makefile.unix	2007-08-07 13:38:58.000000000 +0200
+@@ -1,4 +1,4 @@
+-PREFIX=/usr/local
++PREFIX=/usr
+ CC=gcc
+ FLAGS=
+ 
+@@ -24,5 +24,5 @@
+ 	rm -f stream_ogg
+ 
+ install:
+-	cp -f logg.h $(PREFIX)/include
+-	cp -f liblogg.a $(PREFIX)/lib
++	cp -f logg.h $(DESTDIR)$(PREFIX)/include
++	cp -f liblogg.a $(DESTDIR)$(PREFIX)/lib
