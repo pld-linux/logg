@@ -13,7 +13,7 @@ Source0:	http://trent.gamblin.ca/logg/%{name}-%{version}.tar.bz2
 # Source0-md5:	43be1e144708f6162b04b7c54e218a67
 Patch0:		%{name}-Makefile.patch
 URL:		http://trent.gamblin.ca/logg/
-#BuildRequires:
+BuildRequires:	allegro-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,6 +31,7 @@ Summary:	Header files for LOGG
 Summary(pl.UTF-8):	Pliki nagłówkowe LOGG
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	allegro-devel
 
 %description devel
 Header files for LOGG.
