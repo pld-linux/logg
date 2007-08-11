@@ -14,6 +14,8 @@ Source0:	http://trent.gamblin.ca/logg/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-Makefile.patch
 URL:		http://trent.gamblin.ca/logg/
 BuildRequires:	allegro-devel
+BuildRequires:	libstdc++-devel
+BuildRequires:	libvorbis-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -32,6 +34,8 @@ Summary(pl.UTF-8):	Pliki nagłówkowe LOGG
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	allegro-devel
+Requires:	libstdc++-devel
+Requires:	libvorbis-devel
 
 %description devel
 Header files for LOGG.
