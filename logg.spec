@@ -1,5 +1,4 @@
 # TODO:
-# - Generate .so and .la files and add they to the -devel package
 # - binary files play_ogg and stream_ogg doesn't work properly - check it
 
 Summary:	Library for playing OGG/Vorbis audio files
@@ -64,6 +63,8 @@ Biblioteka statyczna LOGG.
 	CC="%{__cc}" \
 	FLAGS="%{rpmcflags}"
 
+%{__cc} -shared %{name}.o -o liblogg.so
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_includedir},%{_libdir}}
@@ -72,6 +73,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_includedir},%{_libdir}}
 	DESTDIR=$RPM_BUILD_ROOT
 
 install *_ogg $RPM_BUILD_ROOT%{_bindir}
+install liblogg.so $RPM_BUILD_ROOT%{_libdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -82,6 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/liblogg.so
 %{_includedir}/logg.h
 
 %files static
