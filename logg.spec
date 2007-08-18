@@ -61,7 +61,8 @@ Biblioteka statyczna LOGG.
 %build
 %{__make} -f Makefile.unix \
 	CC="%{__cc}" \
-	FLAGS="%{rpmcflags}"
+	FLAGS="%{rpmcflags}" \
+	LDFLAGS="%{rpmldflags}"
 
 %{__cc} -shared %{name}.o -o liblogg.so
 

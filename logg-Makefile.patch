@@ -1,27 +1,29 @@
---- logg-2.5/Makefile.unix	2007-05-13 03:38:44.000000000 +0200
-+++ logg-2.5/Makefile.unix-new	2007-08-08 23:38:35.459523476 +0200
-@@ -1,5 +1,5 @@
+--- logg-2.5/Makefile.unix~	2007-08-18 18:21:44.000000000 +0200
++++ logg-2.5/Makefile.unix	2007-08-18 18:20:55.000000000 +0200
+@@ -1,6 +1,7 @@
 -PREFIX=/usr/local
 -CC=gcc
 +PREFIX=/usr
 +CC=
  FLAGS=
++LDFLAGS=
  
  all: lib play_ogg stream_ogg
-@@ -12,10 +12,10 @@
+ 
+@@ -12,10 +13,10 @@
  	$(CC) $(FLAGS) -c logg.c
  
  play_ogg: play_ogg.c liblogg.a
 -	gcc $(FLAGS) play_ogg.c -o play_ogg -L. -llogg -logg -lvorbis -lvorbisfile `allegro-config --libs` -lm
-+	$(CC) $(FLAGS) play_ogg.c -o play_ogg -L. -llogg -logg -lvorbis -lvorbisfile `allegro-config --libs` -lm
++	$(CC) $(FLAGS) $(LDFLAGS) play_ogg.c -o play_ogg -L. -llogg -logg -lvorbis -lvorbisfile `allegro-config --libs` -lm
  
  stream_ogg: stream_ogg.c liblogg.a
 -	gcc $(FLAGS) stream_ogg.c -o stream_ogg -L. -llogg -logg -lvorbis -lvorbisfile `allegro-config --libs` -lm
-+	$(CC) $(FLAGS) stream_ogg.c -o stream_ogg -L. -llogg -logg -lvorbis -lvorbisfile `allegro-config --libs` -lm
++	$(CC) $(FLAGS) $(LDFLAGS) stream_ogg.c -o stream_ogg -L. -llogg -logg -lvorbis -lvorbisfile `allegro-config --libs` -lm
  
  clean:
  	rm -f liblogg.a
-@@ -24,5 +24,5 @@
+@@ -24,5 +25,5 @@
  	rm -f stream_ogg
  
  install:
