@@ -59,12 +59,12 @@ Biblioteka statyczna LOGG.
 %patch0 -p1
 
 %build
-%{__make} -f Makefile.unix \
+%{__make} -j1 -f Makefile.unix \
 	CC="%{__cc}" \
 	FLAGS="%{rpmcflags}" \
 	LDFLAGS="%{rpmldflags}"
 
-%{__cc} -shared %{name}.o -o liblogg.so
+%{__cc} -shared %{name}.o -o liblogg.so -lvorbisfile `allegro-config --libs`
 
 %install
 rm -rf $RPM_BUILD_ROOT
