@@ -64,14 +64,16 @@ Biblioteka statyczna LOGG.
 	FLAGS="%{rpmcflags}" \
 	LDFLAGS="%{rpmldflags}"
 
-%{__cc} -shared %{name}.o -o liblogg.so -lvorbisfile `allegro-config --libs`
+%{__cc} -fPIC -c logg.c
+%{__cc} -shared logg.o -o liblogg.so -lvorbisfile `allegro-config --libs`
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_includedir},%{_libdir}}
 
 %{__make} -f Makefile.unix install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	LIBDIR="%{_libdir}"
 
 install *_ogg $RPM_BUILD_ROOT%{_bindir}
 install liblogg.so $RPM_BUILD_ROOT%{_libdir}
