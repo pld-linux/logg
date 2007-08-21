@@ -1,5 +1,5 @@
---- logg-2.5/Makefile.unix~	2007-08-18 18:21:44.000000000 +0200
-+++ logg-2.5/Makefile.unix	2007-08-18 18:20:55.000000000 +0200
+--- logg-2.5/Makefile.unix~	2007-08-21 13:24:20.807021989 +0200
++++ logg-2.5/Makefile.unix	2007-08-21 13:23:50.801248013 +0200
 @@ -1,6 +1,7 @@
 -PREFIX=/usr/local
 -CC=gcc
@@ -30,4 +30,4 @@
 -	cp -f logg.h $(PREFIX)/include
 -	cp -f liblogg.a $(PREFIX)/lib
 +	cp -f logg.h $(DESTDIR)/$(PREFIX)/include
-+	cp -f liblogg.a $(DESTDIR)/$(PREFIX)/lib
++	cp -f liblogg.a $(DESTDIR)$(LIBDIR)
