@@ -1,8 +1,8 @@
 # TODO:
-# - binary files play_ogg and stream_ogg doesn't work properly - check it
+# - binary files play_ogg and stream_ogg don't work properly - check it
 
-Summary:	Library for playing OGG/Vorbis audio files
-Summary(pl.UTF-8):	Biblioteka do odtwarzania plików audio OGG/Vorbis
+Summary:	Library for playing Ogg/Vorbis audio files
+Summary(pl.UTF-8):	Biblioteka do odtwarzania plików dźwiękowych Ogg/Vorbis
 Name:		logg
 Version:	2.5
 Release:	0.1
@@ -18,14 +18,14 @@ BuildRequires:	libvorbis-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-LOGG is an Allegro add-on library for playing OGG/Vorbis audio files.
-It can load OGG/Vorbis files as Allegro SAMPLE's, or it can stream
+LOGG is an Allegro add-on library for playing Ogg/Vorbis audio files.
+It can load Ogg/Vorbis files as Allegro SAMPLEs, or it can stream
 them from disk to save memory.
 
 %description -l pl.UTF-8
-LOGG jest dodatkową biblioteką do odtwarzania plików audio
-OGG/Vorbis. Potrafi ona wczytywać pliki OGG/Vorbis jako Allegro
-SAMPLE's lub strumieniować je z dysku do pamięci.
+LOGG jest dodatkową biblioteką do odtwarzania plików dźwiękowych
+Ogg/Vorbis. Potrafi ona wczytywać pliki Ogg/Vorbis jako SAMPLE Allegro
+lub przesyłać je strumieniem z dysku w celu zaoszczędzenia pamięci.
 
 %package devel
 Summary:	Header files for LOGG
@@ -64,8 +64,8 @@ Biblioteka statyczna LOGG.
 	FLAGS="%{rpmcflags}" \
 	LDFLAGS="%{rpmldflags}"
 
-%{__cc} -fPIC -c logg.c
-%{__cc} -shared logg.o -o liblogg.so -lvorbisfile `allegro-config --libs`
+%{__cc} %{rpmcflags} -fPIC -c logg.c
+%{__cc} -shared %{rpmldflags} %{rpmcflags} -o liblogg.so logg.o -lvorbisfile `allegro-config --libs`
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -83,11 +83,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/liblogg.so
 %attr(755,root,root) %{_bindir}/*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/liblogg.so
 %{_includedir}/logg.h
 
 %files static
