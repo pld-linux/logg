@@ -4,17 +4,18 @@
 Summary:	Library for playing Ogg/Vorbis audio files
 Summary(pl.UTF-8):	Biblioteka do odtwarzania plików dźwiękowych Ogg/Vorbis
 Name:		logg
-Version:	2.5
+Version:	2.6
 Release:	0.1
 License:	MIT
 Group:		Development/Tools
-Source0:	http://trent.gamblin.ca/logg/%{name}-%{version}.tar.bz2
-# Source0-md5:	43be1e144708f6162b04b7c54e218a67
+Source0:	http://trent.gamblin.ca/logg/%{name}-%{version}.zip
+# Source0-md5:	d578ff754d905692c369ac9fc742d81a
 Patch0:		%{name}-Makefile.patch
 URL:		http://trent.gamblin.ca/logg/
 BuildRequires:	allegro-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libvorbis-devel
+BuildRequires:	unzip
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
