@@ -20,8 +20,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 LOGG is an Allegro add-on library for playing Ogg/Vorbis audio files.
-It can load Ogg/Vorbis files as Allegro SAMPLEs, or it can stream
-them from disk to save memory.
+It can load Ogg/Vorbis files as Allegro SAMPLEs, or it can stream them
+from disk to save memory.
 
 %description -l pl.UTF-8
 LOGG jest dodatkową biblioteką do odtwarzania plików dźwiękowych
