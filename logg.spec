@@ -13,7 +13,6 @@ Source0:	http://trent.gamblin.ca/logg/%{name}-%{version}.zip
 Patch0:		%{name}-Makefile.patch
 URL:		http://trent.gamblin.ca/logg/
 BuildRequires:	allegro-devel >= 4.4.0
-BuildRequires:	libstdc++-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	unzip
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
