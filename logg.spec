@@ -4,12 +4,12 @@
 Summary:	Library for playing Ogg/Vorbis audio files
 Summary(pl.UTF-8):	Biblioteka do odtwarzania plików dźwiękowych Ogg/Vorbis
 Name:		logg
-Version:	2.8
+Version:	2.9
 Release:	0.1
 License:	MIT
 Group:		Development/Tools
 Source0:	http://trent.gamblin.ca/logg/%{name}-%{version}.zip
-# Source0-md5:	a940e7894f2a487f26ff7d012d06967b
+# Source0-md5:	9bf15529a30624ed13a81cd7c4249ca0
 Patch0:		%{name}-Makefile.patch
 URL:		http://trent.gamblin.ca/logg/
 BuildRequires:	allegro-devel >= 4.4.0
@@ -84,7 +84,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/liblogg.so
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/play_ogg
+%attr(755,root,root) %{_bindir}/stream_ogg
 
 %files devel
 %defattr(644,root,root,755)
