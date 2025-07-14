@@ -56,7 +56,7 @@ Biblioteka statyczna LOGG.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__make} -j1 -f Makefile.unix \
